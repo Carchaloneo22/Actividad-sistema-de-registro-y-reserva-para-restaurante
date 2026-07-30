@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123d68">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; form-action 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self' http://localhost:3000;">
+  <title>Iniciar sesión | ReservaRest</title>
+  <link rel="stylesheet" href="css/styles.css?v=11">
+</head>
+<body class="login-page">
+  <main class="login-layout">
+    <section class="login-brand" aria-label="ReservaRest">
+      <div class="login-logo" aria-hidden="true">🍽</div>
+      <h1>ReservaRest</h1>
+      <p>Sistema integral de gestión</p>
+    </section>
+
+    <section class="login-card">
+      <div class="login-heading">
+        <span>ACCESO SEGURO</span>
+        <h2>Iniciar sesión</h2>
+        <p>Ingresa con el usuario asignado para tu rol.</p>
+      </div>
+
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="identificador">Usuario o correo</label>
+          <input id="identificador" name="identificador" placeholder="Ej. admin" autocomplete="username" required>
+          <small class="field-error" data-error="identificador"></small>
+        </div>
+        <div class="field">
+          <label for="password">Contraseña</label>
+          <div class="password-field">
+            <input id="password" name="password" type="password" minlength="8" maxlength="72" placeholder="••••••••" autocomplete="current-password" required>
+            <button id="toggle" type="button" class="password-toggle" aria-label="Mostrar contraseña">Ver</button>
+          </div>
+          <small class="field-error" data-error="password"></small>
+        </div>
+        <p id="error" class="form-alert" role="alert"></p>
+        <button class="btn btn-primary btn-block" type="submit">
+          <span class="button-label">Entrar</span>
+        </button>
+      </form>
+    </section>
+
+    <section id="demoCard" class="demo-card" hidden>
+      <strong>Usuarios de desarrollo</strong>
+      <p>Administrador: <code>admin</code> / <code>Demo2026*</code></p>
+      <p>Mesero: <code>mesero1</code> / <code>Demo2026*</code></p>
+      <p>Cocina: <code>cocina1</code> / <code>Demo2026*</code></p>
+      <p>Despacho: <code>despacho</code> / <code>Demo2026*</code></p>
+      <small>Las contraseñas deben cambiarse antes de producción.</small>
+    </section>
+  </main>
+
+  <div id="toastRegion" class="toast-region" aria-live="polite"></div>
+  <script src="js/api.js?v=11"></script>
+  <script src="js/login.js?v=11"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+RESERVAREST V11 - FACTURACIÓN SIMULADA, IVA 19% Y PROPINA 10%
+================================================================
+
+Esta actualización está diseñada para la beta. No requiere credenciales de Factus.
+
+NOVEDADES
+- Factus Mock local, sin conexiones externas.
+- Número BETA y CUFE simulado.
+- Aviso obligatorio: FACTURA SIMULADA - BETA - NO VÁLIDA ANTE LA DIAN.
+- IVA del 19% configurado para los productos no excluidos.
+- Propina sugerida del 10%, siempre voluntaria y sin marcar por defecto.
+- El cajero debe preguntarle al cliente antes de incluir la propina.
+- Totales recalculados en el backend.
+- Factura beta imprimible.
+- Reportes separados de ventas y propinas.
+
+INSTALACIÓN RÁPIDA
+1. Detenga backend y frontend con Ctrl + C.
+2. Copie backend y frontend sobre la carpeta del proyecto y elija Reemplazar.
+3. No elimine backend/.env ni backend/node_modules.
+4. Ejecute ACTUALIZAR_V11_BETA.cmd.
+5. Inicie el backend y frontend normalmente.
+
+COMANDOS MANUALES
+cd "C:\Users\USUARIO\Documents\Sena\Java chaparro\restaurante\backend"
+npm.cmd install
+npm.cmd run migrate:factus
+npm.cmd run configure:v11-beta
+npm.cmd run migrate:v11
+npm.cmd test
+npm.cmd run dev
+
+El configurador crea una copia llamada backend/.env.antes-v11 y conserva las
+credenciales de MySQL, JWT y cookies.
+
+CONFIGURACIÓN RESULTANTE
+FACTUS_ENABLED=true
+FACTUS_MOCK_MODE=true
+FACTUS_ENV=mock
+FACTUS_DEFAULT_TAX_CODE=01
+FACTUS_DEFAULT_TAX_RATE=19.00
+TIP_RATE=0.10
+TIP_MAX_RATE=0.10
+
+IMPORTANTE
+- El CUFE simulado no es oficial.
+- No se envía información a Factus ni a la DIAN.
+- La propina no se activa automáticamente.
+- Confirme con el contador la tributación real antes de pasar a producción.

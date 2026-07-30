@@ -1,0 +1,2 @@
+-- Los datos iniciales se cargan con: npm run seed
+-- Esto permite generar hashes bcrypt reales y relaciones sin almacenar contraseñas planas en SQL.

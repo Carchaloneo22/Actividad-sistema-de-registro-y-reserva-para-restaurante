@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123d68">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; form-action 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' http://localhost:3000; connect-src 'self' http://localhost:3000 ws://localhost:3000;">
+  <title>ReservaRest | Gestión del restaurante</title>
+  <link rel="stylesheet" href="css/styles.css?v=11">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Menú principal">
+      <div class="sidebar-brand">
+        <span class="brand-icon" aria-hidden="true">🍽</span>
+        <div>
+          <strong>ReservaRest</strong>
+          <small>Gestión integral</small>
+        </div>
+      </div>
+      <nav id="nav" class="side-nav"></nav>
+      <div class="sidebar-footer">
+        <small>Sistema del restaurante</small>
+        <span>Base de datos MySQL</span>
+      </div>
+    </aside>
+
+    <button class="sidebar-backdrop" id="sidebarBackdrop" aria-label="Cerrar menú"></button>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button id="menuBtn" class="icon-button mobile-menu" type="button" aria-label="Abrir menú">☰</button>
+          <div>
+            <span class="topbar-kicker">SISTEMA DE GESTIÓN</span>
+            <strong id="pageTitle">Panel</strong>
+          </div>
+        </div>
+        <div class="topbar-user">
+          <span class="role-pill" id="roleLabel">Cargando</span>
+          <div class="user-copy">
+            <strong id="userName">Cargando...</strong>
+            <small id="userAccount"></small>
+          </div>
+          <button id="logout" class="text-button" type="button">Salir</button>
+        </div>
+      </header>
+
+      <section id="view" class="content" aria-live="polite">
+        <div class="panel loading-card"><span class="spinner"></span> Cargando sistema...</div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toastRegion" class="toast-region" aria-live="polite"></div>
+
+  <script src="js/api.js?v=11"></script>
+  <script src="js/bootstrap.js?v=11"></script>
+</body>
+</html>

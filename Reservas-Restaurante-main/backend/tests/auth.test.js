@@ -1,0 +1,2 @@
+process.env.NODE_ENV='test'; process.env.JWT_SECRET='test-secret'; process.env.COOKIE_SECRET='test-cookie-secret'; process.env.FRONTEND_URL='http://localhost:8080'; process.env.JWT_EXPIRES_IN='1h'; const request=require('supertest'); const app=require('../src/app');
+describe('API base',()=>{ test('health',async()=>{const r=await request(app).get('/api/health');expect(r.status).toBe(200);expect(r.body.success).toBe(true);}); test('ruta protegida',async()=>{const r=await request(app).get('/api/mesas');expect(r.status).toBe(401);}); });

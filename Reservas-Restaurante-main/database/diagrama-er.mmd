@@ -1,0 +1,41 @@
+erDiagram
+ROLES ||--o{ USUARIOS : asigna
+USUARIOS ||--o| MESEROS : perfil
+MESEROS ||--o{ MESAS : atiende
+CATEGORIAS ||--o{ PLATOS : agrupa
+CLIENTES ||--o{ RESERVAS : realiza
+MESAS ||--o{ RESERVAS : recibe
+MESAS ||--o{ PEDIDOS : origina
+CLIENTES ||--o{ PEDIDOS : solicita
+MESEROS ||--o{ PEDIDOS : atiende
+PEDIDOS ||--|{ DETALLE_PEDIDOS : contiene
+PLATOS ||--o{ DETALLE_PEDIDOS : aparece
+PEDIDOS ||--o{ HISTORIAL_PEDIDOS : registra
+PEDIDOS ||--o{ PAGOS : recibe
+METODOS_PAGO ||--o{ PAGOS : clasifica
+PEDIDOS ||--o| FACTURAS : genera
+USUARIOS ||--o{ AUDITORIA : ejecuta
+USUARIOS ||--o{ NOTIFICACIONES : recibe
+
+PLATOS {
+  string factus_tax_code
+  decimal factus_tax_rate
+  boolean factus_is_excluded
+  string factus_unit_measure_code
+  string factus_standard_code
+}
+
+PEDIDOS {
+  decimal propina
+  decimal propina_porcentaje
+}
+
+FACTURAS {
+  string proveedor
+  string estado_electronico
+  string referencia_externa
+  text cufe
+  text url_publica
+  datetime validada_en
+  decimal propina
+}
